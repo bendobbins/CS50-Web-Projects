@@ -1,0 +1,318 @@
+html {
+    background-color: #d7f1d1;
+    height: 100%;
+}
+
+body {
+    background-color: #d7f1d1;
+    height: 100%;
+}
+
+h1 {
+    margin: 0;
+}
+
+@font-face {
+    font-family: roboto;
+    src: url(Roboto/Roboto-BoldItalic.ttf);
+}
+
+.mobile-content {
+    display: none !important;
+}
+
+.desktop-content {
+    display: inline-block;
+}
+
+.primary-bg {
+    background-color: green;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.relative {
+    position: relative;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.logo {
+    padding-top: 75px;
+    font-family: roboto;
+}
+
+.logo a {
+    text-decoration: none;
+    color: darkgreen;
+}
+
+.sublogo {
+    color: green;
+}
+
+.form-control {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+}
+
+.header-big {
+    font-family: roboto;
+    font-weight: bolder;
+    font-style: italic;
+    font-size: small;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.header-big a {
+    text-decoration: none;
+    color: white;
+}
+
+.dropdown-button {
+    width: 25px;
+    height: 2px;
+    background-color: white;
+    margin: 6px 3px;
+}
+
+.select {
+    margin: auto 0;
+}
+
+.sport {
+    display: inline-block;
+    height: 50px;
+    width: 150px;
+    line-height: 50px;
+    margin: 3px 0;
+}
+
+.sport a {
+    color: black;
+    font-weight: bolder;
+}
+
+.main-link:hover {
+    text-decoration: none;
+    color: orange;
+}
+
+.header-small {
+    color: white;
+    margin-left: 25px;
+}
+
+.header-small a {
+    color: white;
+}
+
+.contain {
+    height: calc(100% - 48px);
+}
+
+.dropdown {
+    margin-left: auto;
+}
+
+.side-content {
+    width: 25%;
+    height: 100%;
+}
+
+.main-content {
+    width: 50%;
+    height: 100%;
+    border-left: 1px solid green;
+    border-right: 1px solid green;
+}
+
+.content {
+    padding: 0 15px;
+}
+
+.content-header {
+    color: #0b3e09;
+    margin-top: 10px;
+    border-bottom: 1px solid #0b3e09;
+}
+
+.side-body {
+    margin-top: 20px;
+}
+
+.constraint-button {
+    margin-left: 3px;
+}
+
+.constraint-label {
+    margin-right: 3px;
+}
+
+.create-header {
+    color: darkgreen;
+    margin-bottom: 10px;
+}
+
+.pad {
+    padding: 15px;
+}
+
+.required {
+    color: red;
+}
+
+#select-desktop {
+    margin-right: 20px;
+}
+
+#select-sport:hover {
+    color: orange;
+}
+
+#sports {
+    padding: 30px 175px;
+    background-color:limegreen;
+}
+
+#select-mobile {
+    height: 29px;
+    margin-right: 10px;
+}
+
+#profile-link {
+    font-size: large;
+    font-weight: bold;
+}
+
+#person-search {
+    width: 100%;
+    background-color: #effaee;
+    border: 1px solid black;
+    border-radius: 25px;
+    height: 45px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+#content-header-right {
+    margin-bottom: 10px;
+}
+
+#main-content-header {
+    border-bottom: none;
+}
+
+#constraint-header {
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+#right-side-body {
+    color: #0b3e09;
+}
+
+#constraints {
+    border: 1px solid black;
+    background-color: #effaee;
+    padding: 0 10px;
+}
+
+#constraint-bottom {
+    margin-bottom: 10px;
+}
+
+#constraint-submit {
+    background-color: green;
+    color: white;
+    border: 1px solid green;
+    border-radius: 5px;
+}
+
+#new-post-container {
+    border: 1px solid black;
+    background-color: #effaee;
+    border-radius: 5px;
+}
+
+#post-description {
+    width: 100%;
+}
+
+#personal-info {
+    width: 100%;
+    background-color: lightgreen;
+    height: 250px;
+}
+
+#profile-picture {
+    float: left;
+    margin: 0 30px;
+    width: 17%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#picture {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+#picture:hover {
+    cursor: pointer;
+    opacity: 90%;
+}
+
+#profile-name {
+    float: left;
+    height: 100%;
+}
+
+#pf-username {
+    margin-top: 30px;
+}
+
+#profile-about {
+    height: 100%;
+    width: auto;
+    overflow: hidden;
+}
+
+#pf-about {
+    height: calc(100% - 48px);
+    overflow-y: scroll;
+    padding-left: 15%;
+    padding-right: 20px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#pf-about::-webkit-scrollbar {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-content {
+        display: inline-flex !important;
+    }
+    .main-content {
+        width: 100%;
+        border: none;
+    }
+    .desktop-content {
+        display: none;
+    }
+}

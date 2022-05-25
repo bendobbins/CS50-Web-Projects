@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}SportsConnect{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'sports/styles.css' %}" rel="stylesheet">
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+        {% block script %}
+        <script src="{% static 'sports/main.js' %}"></script>
+        {% endblock %}
+    </head>
+    <body>
+        <header class="primary-bg flex">
+            <div class="header-big text-center">
+                    <h1><a href="{% url 'index' %}">SportsConnect</a></h1>
+            </div>
+            {% if not user.is_authenticated %}
+            <div class="desktop-content select header-small">
+                <a class="main-link" href="{% url 'login' %}">Log In</a>
+            </div>
+            <div class="desktop-content select header-small">
+                <a class="main-link" href="{% url 'register' %}">Register</a>
+            </div>
+            {% else %}
+            <div class="desktop-content select header-small" id="profile-link">
+                <a class="main-link" href="{% url 'profile' user.username %}">{{ user.username }}</a>
+            </div>
+            <div class="desktop-content select header-small">
+                <a class="main-link" href="{% url 'create' %}">New Post</a>
+            </div>
+            <div class="desktop-content select header-small">
+                <a class="main-link" href="{% url 'logout' %}">Log out</a>
+            </div>
+            {% endif %}
+            <div class="desktop-content select dropdown" id="select-desktop">
+                <button class="btn dropdown-toggle main-link header-small" id="select-sport">Sports</button>
+            </div>
+            <div class="primary-header dropdown mobile-content">
+                <div class="mobile-content select" id="select-mobile">
+                    <form>
+                        <div class="dropdown-button"></div>
+                        <div class="dropdown-button"></div>
+                        <div class="dropdown-button"></div>
+                    </form>
+                </div>
+            </div>
+        </header>
+        <div class="desktop-content" id="sports" style="display: none">
+            {% for sport in sports %}
+                <div class="sport text-center">
+                    <a class="main-link" href="{% url 'sport' sport %}">{{ sport }}</a>
+                </div>
+            {% endfor %}
+        </div>
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>

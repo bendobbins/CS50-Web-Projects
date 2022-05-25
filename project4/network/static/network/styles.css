@@ -1,0 +1,78 @@
+html {
+    background-color: #f0f7f6;
+}
+
+body {
+    background-color: #f0f7f6;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.headers {
+    border-bottom: 2px solid lightgray;
+}
+
+.page-header {
+    padding: 10px;
+    background-color: lightblue;
+}
+
+.subheader-text {
+    margin-right: 10px;
+}
+
+.small-container {
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 20px;
+}
+
+.edit-text {
+    width: 100%;
+}
+
+.like {
+    background-color: white;
+    border: none;
+}
+
+.like:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+#create-div {
+    background-color: lightblue;
+}
+
+#timestamp {
+    color: gray;
+}
+
+#profile-header {
+    display: flex;
+}
+
+#profile-subheader {
+    background-color: #dbeeed;
+}
+
+#follow-button {
+    margin: auto 20px;
+}
+
+#pagination {
+    float: left;
+    padding: 0;
+    line-height: inherit;
+}
+
+#pagination-nav {
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+}

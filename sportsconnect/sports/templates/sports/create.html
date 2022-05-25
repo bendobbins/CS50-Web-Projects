@@ -1,0 +1,69 @@
+{% extends 'sports/layout.html' %}
+{% load static %}
+
+{% block title %}New Post{% endblock %}
+
+{% block body %}
+<div class="pad contain">
+    <div class="create-header">
+        <h1>Create a New Post</h1>
+    </div>
+    <div class="pad" id="new-post-container">
+        <form>
+            {% csrf_token %}
+            <div>
+                <label for="title"><span class="required">*</span><strong>   Title:</strong></label>
+                <input type="text" placeholder="Ex: Tennis at Local Court" autocomplete="off" autofocus required id="title">
+            </div>
+            <div>
+                <label for="people"><span class="required">*</span><strong>   Number of People</strong> (not including yourself)<strong>:</strong></label>
+                <input type="number" min="1" max="100" required  id="people">
+            </div>
+            <div>
+                <div>
+                    <span class="required">*</span><strong>    Select a Sport:</strong>
+                </div>
+                <div>
+                    {% for sport in sports %}
+                    <input type="radio" id="{{ sport }}" required name="sport" value="{{ sport }}">
+                    <label for="{{ sport }}">{{ sport }}</label>
+                    {% endfor %}
+                </div>
+            </div>
+            <div>
+                <div>
+                    <span class="required">*</span><strong>    Select Activity Type:</strong>
+                </div>
+                <div>
+                    {% for type in types %}
+                    <input type="radio" name="type" required id="{{ type }}" value="{{ type }}">
+                    <label for="{{ type }}">{{ type }}</label>
+                    {% endfor %}
+                </div>
+            </div>
+            <div>
+                <div>
+                    <span class="required">*</span><strong>    Select Level of Competition:</strong>
+                </div>
+                <div>
+                    {% for complvl in competition %}
+                    <input type="radio" name="competition" required id="{{ complvl }}" value="{{ complvl }}">
+                    <label for="{{ complvl }}">{{ complvl }}</label>
+                    {% endfor %}
+                </div>
+            </div>
+            <div>
+                <div>
+                    <strong>Description:</strong>
+                </div>
+                <div>
+                    <textarea id="post-description" rows="6" placeholder="Add a description for your activity"></textarea>
+                </div>
+            </div>
+            <div>
+                <input type="submit" id="submit-post" value="Create Post">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

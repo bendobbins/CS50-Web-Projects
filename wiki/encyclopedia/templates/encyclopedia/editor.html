@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+    <form action="{% url 'save' %}" method="post">
+        {% csrf_token %}
+        {% if create %}
+            <div style="margin-bottom: 10px">
+                <input type="text" placeholder="Title" autofocus name="title">
+            </div>
+        {% endif %}
+        <textarea name="body">{{ existing }}</textarea>
+        <div>
+            <button type="submit" style="margin-top: 5px">Save</button>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+    {% if watchlist %}
+    <h2>Your Watchlist</h2>
+    {% else %}
+    <h2>Active Listings</h2>
+    {% endif %}
+
+    {% if category %}
+    <h4>Category: {{ category }}</h4>
+    {% endif %}
+
+    {% for listing in listings %}
+        <a href="{% url 'listing' listing.id %}" id="list-link">
+            <div class="listing section">
+                <div class="listing-part picture" id="image">
+                {% if listing.item.image %}
+                    <img src="{{ listing.item.image }}" alt="item-image" width="250" height="225">
+                {% else %}
+                    <img src="https://www.russorizio.com/wp-content/uploads/2016/07/ef3-placeholder-image.jpg" alt="placeholder" width="250" height="225">
+                {% endif %}
+                </div>
+                <div class="listing-part" id="information">
+                    <h4>{{ listing.item.name }}</h4>
+                    <b>Price: </b> ${{ listing.item.price }}
+                    <br>
+                    <b>Category: </b> 
+                    {% if listing.item.category %}
+                        {{ listing.item.category }}
+                    {% else %}
+                        None
+                    {% endif %}
+                    <br><br>
+                    {{ listing.item.description }}
+                    <br><br><br>
+                    <span class="timestamp" id="indexstamp">Created by {{ listing.lister.username }} on {{ listing.datetime }}</span>
+                </div>
+            </div>
+        </a>
+    {% empty %}
+    {% if watchlist %}
+    <h5>There is nothing in your watchlist.</h5>
+    {% else %}
+    <h5>No listings currently.</h5>
+    {% endif %}
+    {% endfor %}
+{% endblock %}

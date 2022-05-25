@@ -1,0 +1,21 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+<form action="{% url 'categories' %}" method="post">
+    {% csrf_token %}
+    {% for category in categories %}
+    <input type="radio" id="{{ category }}" name="category" value="{{ category }}">
+    <label for="{{ category }}">{{ category }}</label>
+    <br>
+    {% empty %}
+    There are no categories.
+    {% endfor %}
+    {% if categories %}
+    <button type="submit">Find Listings</button>
+    {% endif %}
+</form>
+{% endblock %}

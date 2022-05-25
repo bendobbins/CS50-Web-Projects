@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Google Advanced Search</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="linksdiv">
+            <div class="links">
+                <a href="index.html" id="search">Google Search</a>
+            </div>
+        </div>
+        <div class="formdiv" id="advanced-form">
+            <div class="label-div">
+                <div class="labels">
+                    <label>All these words: </label>
+                </div>
+                <div class="labels">
+                    <label>This exact word or phrase: </label>
+                </div>
+                <div class="labels">
+                    <label>Any of these words: </label>
+                </div>
+                <div class="labels">
+                    <label>None of these words: </label>
+                </div>
+            </div>
+            <form action="https://google.com/search">
+                <input type="text" class="search-form advanced searchbar" autocomplete="off" autocapitalize="off" placeholder="All words to include" name="as_q">
+                <input type="text" class="search-form advanced searchbar" autocomplete="off" autocapitalize="off" placeholder="Exact words/phrases (phrases in quotes)" name="as_epq">
+                <input type="text" class="search-form advanced searchbar" autocomplete="off" autocapitalize="off" placeholder="Any of these words (OR between words)" name="as_oq">
+                <input type="text" class="search-form advanced searchbar" autocomplete="off" autocapitalize="off" placeholder="None of these words (- before words)" name="as_eq">
+                <input type="submit" class="search-form search-button" id="advanced" value="Advanced Search">
+            </form>
+            <div class="label-div">
+                <div class="labels">
+                    <label>Ex: Tricolor rat terrier</label>
+                </div>
+                <div class="labels">
+                    <label>Ex: "rat terrier"</label>
+                </div>
+                <div class="labels">
+                    <label>Ex: miniature OR standard</label>
+                </div>
+                <div class="labels">
+                    <label>Ex: -rodent, -"Jack Russell"</label>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

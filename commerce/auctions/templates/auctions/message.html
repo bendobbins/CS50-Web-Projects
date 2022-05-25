@@ -1,0 +1,24 @@
+{% extends "auctions/layout.html" %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+    {% if not bid %}
+    {% if success %}
+    <h2>Congratulations!</h2>
+    <h6>Your bid of ${{ listing.item.price }} for {{ listing.item.name }} was successful. Check the item listing periodically to see if your bid was accepted or if you were outbid by someone else.</h6>
+    {% else %}
+    <h2>Error</h2>
+    <h6>Something went wrong when placing your bid. Please make sure your bid met all requirements and you are not bidding on your own item.</h6>
+    {% endif %}
+    {% else %}
+    {% if bid.leader %}
+    <h2>Congratulations!</h2>
+    <h6>You successfully closed bidding on {{ bid.listing.item.name }} and will receive ${{ bid.listing.item.price }} from {{ bid.leader.username }}.</h6>
+    {% else %}
+    <h2>Bidding closed</h2>
+    <h6>No bids were placed.</h6>
+    {% endif %}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block title %}
+{% if valid %}
+{{ person.username }}'s Profile
+{% else %}
+Error
+{% endif %}
+{% endblock %}
+
+{% block body %}
+{% if valid %}
+<div class="page-header" id="profile-header">
+    <h1>{{ person.username }}</h1>
+    {% if user.is_authenticated %}
+    {% if user.username != person.username %}
+    <div id="follow-button">
+        <input type="hidden" value="{{ person.username }}" id="profile-user">
+        <button id="follow" class="btn btn-outline-primary">{% if following %} Unfollow {% else %} Follow {% endif %}</button>
+    </div>
+    {% endif %}
+    {% endif %}
+</div>
+<div class="headers page-header" id="profile-subheader">
+    <span class="subheader-text"><b>Followers: </b><span id="followers">{{ person.followers }}</span></span>
+    <span class="subheader-text"><b>Following: </b><span id="following">{{ person.following }}</span></span>
+</div>
+<div id="profile-content">
+    {% for post in posts %}
+    <div class="small-container">
+        <b>{{ post.user.username }}</b>
+        <hr>
+        <span id="{{ post.id }}">{{ post.content }}</span>
+        <br>
+        <br>
+        {% if user.username == post.user.username %}
+        <button type="submit" class="btn btn-sm btn-outline-primary" name="edit" value="{{ post.id }}">Edit</button>
+        <br>
+        {% endif %}
+        Posted: <span id="timestamp">{{ post.timestamp }}</span>
+        <br>
+        <button class="like" {% if user.is_authenticated %} name="like" {% endif %} value="{{ post.id }}">{% if post.id in liked %}❤{% else %}♡{% endif %}</button>
+        <span id="like {{ post.id }}">{{ post.likes }}</span>
+    </div>
+    {% empty %}
+    <h2 style="margin: 20px;">User has no posts yet.</h2>
+    {% endfor %}
+</div>
+<nav aria-label="page-nav" id="pagination-nav">
+    <div id="pagination">
+        <ul class="pagination">
+            {% if posts.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{ posts.previous_page_number }}">Previous</a></li>
+            {% endif %}
+            <li class="page-item"><a class="page-link">{% if posts.paginator.num_pages %} Page {{ posts.number }}/{{ posts.paginator.num_pages }} {% else %} Page 1/1 {% endif %}</a></li>
+            {% if posts.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ posts.next_page_number }}">Next</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+{% else %}
+<h1 class="page-header">User does not exist.</h1>
+{% endif %}
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'network/main.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,67 @@
+body {
+    padding: 10px;
+}
+
+.create {
+    margin-bottom: 5px;
+}
+
+.listing {
+    display: flex;
+}
+
+.section {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    border: 1px solid gray;
+}
+
+.listing-part {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.picture {
+    display: flex;
+    justify-content: center;
+}
+
+.form {
+    margin-top: 5px;
+}
+
+.timestamp {
+    color: gray;
+    font-size: small;
+}
+
+#indexstamp {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+}
+
+#image {
+    width: 25%;
+}
+
+#information {
+    width: 75%;
+    position: relative;
+}
+
+#list-link {
+    text-decoration: none;
+    color: black;
+}
+
+#bid-entry {
+    width: 25%;
+    margin-bottom: 5px;
+}
+
+#details {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,57 @@
+{% extends 'sports/layout.html' %}
+{% load static %}
+
+{% block title %}SportsConnect{% endblock %}
+
+{% block body %}
+<div class="flex contain">
+    <div class="side-content content desktop-content">
+        {% if user.is_authenticated %}
+        <div class="content-header text-center">
+            <h2>New Messages</h2>
+        </div>
+        <div class="side-body text-center">
+            No new messages.
+        </div>
+        {% endif %}
+    </div>
+    <div class="main-content content">
+        <div class="content-header text-center" id="main-content-header">
+            <h2>Recent Posts</h2>
+            <div id="constraints">
+                <div>
+                    <p id="constraint-header">Filter posts by:</p>
+                </div>
+                <form>
+                    <div>
+                        <input class="constraint-button" type="checkbox" id="casual" name="casual">
+                        <label class="constraint-label" for="casual">Casual</label>
+                        <input class="constraint-button" type="checkbox" id="competitive" name="competitive">
+                        <label class="constraint-label" for="competitive">Competitive</label>
+                        <input class="constraint-button" type="checkbox" id="young-age" name="young-age">
+                        <label class="constraint-label" for="young-age">Age 18-35</label>
+                        <input class="constraint-button" type="checkbox" id="middle-age" name="middle-age">
+                        <label class="constraint-label" for="middle-age">Age 36-65</label>
+                        <input class="constraint-button" type="checkbox" id="old-age" name="old-age">
+                        <label class="constraint-label" for="old-age">Age 66+</label>
+                        <input class="constraint-button" type="checkbox" id="practice" name="practice">
+                        <label class="constraint-label" for="practice">Practice/Training</label>
+                    </div>
+                    <div class="text-center" id="constraint-bottom">
+                        <input type="submit" value="Filter" id="constraint-submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="side-content content desktop-content">
+        <div class="content-header text-center" id="content-header-right">
+            <h2>Find A User</h2>
+            <input placeholder="Username, Name or Email" autocomplete="false" autocapitalize="false" id="person-search">
+        </div>
+        <div class="side-body text-center" id="right-side-body">
+            <h4>Users with Similar Interests</h4>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "network/layout.html" %}
+
+{% block title %}
+Create a New Post
+{% endblock %}
+
+{% block body %}
+<div class="small-container" id="create-div">
+    <h2>Create a New Post</h2>
+    <form action="{% url 'new' %}" method="post">
+        {% csrf_token %}
+        <textarea name="post" required autofocus autocomplete="off" class="edit-text" rows="5"></textarea>        
+        <div>
+            <button type="submit" class="btn btn-outline-primary">Post</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

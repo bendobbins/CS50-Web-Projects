@@ -1,0 +1,42 @@
+{% extends 'sports/layout.html' %}
+{% load static %}
+
+{% block title %}{{ person.username }}'s Profile{% endblock %}
+
+{% block body %}
+<div id="personal-info">
+    <div class="flex" id="profile-picture">
+        <div class="text-center" id="contain-picture">
+            <div id="picture">
+                <img src="{{ person.picture }}" id="pf-pic" alt="profile-picture" height="150px" width="150px">
+                <form action="{% url 'upload' %}" method="post" enctype="multipart/form-data" id="image-form" style="display: none">
+                    {% csrf_token %}
+                    <input type="file" multiple="false" id="image-upload">
+                </form>
+            </div>
+            <div>
+                Click to change
+            </div>
+        </div>
+    </div>
+    <div id="profile-name">
+        <div id="pf-username">
+            <h1>{{ person.username }}</h1>
+        </div>
+        <div id="pf-name">
+            <span>{{ person.name }}</span>
+        </div>
+        <div id="pf-location">
+            <span>Lives in {{ person.location }}</span>
+        </div>
+    </div>
+    <div id="profile-about">
+        <div class="text-center" id="pf-about-header">
+            <h2>About {{ person.username }}</h2>
+        </div>
+        <div id="pf-about">
+            <p>Description</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+textarea {
+    min-height: 400px;
+}
+
+.email {
+    border: 1px solid black;
+    padding: 5px 10px;
+}
+
+.email:hover {
+    cursor: pointer;
+    border-color: gray;
+}
+
+.read {
+    background-color: lightgray;
+}
+
+.date {
+    color: gray;
+    float: right;
+}
+
+.sender {
+    font-weight: bold;
+    padding-right: 20px;
+}
